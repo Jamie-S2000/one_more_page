@@ -5,11 +5,11 @@ const NavBar = () => {
   return (
     <Navbar expand="md" fixed="top">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home"><i class="fa-solid fa-book-open"></i> One More Page</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home"><i class="fa-solid fa-book-open"></i>Home</Nav.Link>
+          <Nav className="ml-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Log in</Nav.Link>
             <Nav.Link href="#link">Register</Nav.Link>
             <Nav.Link href="#link">Contact</Nav.Link>
