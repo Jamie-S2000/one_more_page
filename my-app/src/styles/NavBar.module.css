@@ -2,3 +2,8 @@
     background-color: #05472A;
     border: 1px solid black;
 }
+
+.NavLink {
+    color: white;
+    padding: 5px;
+}
