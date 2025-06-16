@@ -26,7 +26,7 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration", registerData);
+      await axios.post("/dj-rest-auth/registration/", registerData);
       navigate("/login");
     } catch (err) {
       console.log("Registration error:", err.response?.data);
