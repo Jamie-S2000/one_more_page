@@ -16,3 +16,7 @@ a:hover {
   color: #92A597;
   text-decoration: none;
 }
+
+.Content {
+  justify-content: center;
+}

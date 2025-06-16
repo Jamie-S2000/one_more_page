@@ -1,0 +1,33 @@
+.Input {
+  background: #ffffff;
+  border: 1px solid #444444;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.Input:focus {
+  border-color: #05472A;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.Div {
+  padding: 10px;
+}
+
+.Btn {
+  background-color: #05472A;
+  border: 1px solid #444444;
+  border-radius: 25px;
+}
+
+.Btn:hover {
+  background-color: #0a8851;
+}
+
+.Link {
+  color: #05472A;
+}
+
+.Link:hover {
+  color: #0a8851;
+}
