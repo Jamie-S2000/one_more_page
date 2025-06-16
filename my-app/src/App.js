@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import "./api/axiosDefaults";
 import Register from "./pages/auth/Register";
+import LogIn from "./pages/auth/LogIn";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Container className={styles.Main}>
         <Routes>
           <Route path="/" element={<h1>Home Page</h1>} />
-          <Route path="/login" element={<h1>Log in</h1>} />
+          <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<h1>Contact</h1>} />
           <Route path="*" element={<p>Page not found!</p>} />

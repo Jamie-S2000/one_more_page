@@ -6,41 +6,41 @@ import axios from "axios";
 import styles from "../../styles/Forms.module.css";
 import appStyles from "../../App.module.css";
 
-const Register = () => {
-  const [registerData, setRegisterData] = useState({
+function LogIn() {
+  const [logInData, setLogInData] = useState({
     username: "",
-    password1: "",
-    password2: "",
+    password: "",
   });
-  const { username, password1, password2 } = registerData;
+
+  const { username, password } = logInData;
 
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    setRegisterData({
-      ...registerData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", registerData);
-      navigate("/login");
+      await axios.post("/dj-rest-auth/login/", logInData);
+      navigate("/");
     } catch (err) {
-      console.log("Registration error:", err.response?.data);
+      console.log("Log in error:", err.response?.data);
       setErrors(err.response?.data);
     }
+  };
+
+  const handleChange = (event) => {
+    setLogInData({
+      ...logInData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
     <Row className={`${appStyles.Content}`}>
       <Col className="my-auto" lg={6}>
         <Container>
-          <h1>Register</h1>
+          <h1>Log In</h1>
           <Form onSubmit={handleSubmit}>
             <div className={styles.Div}>
               <Form.Group controlId="username">
@@ -55,7 +55,6 @@ const Register = () => {
                 />
               </Form.Group>
             </div>
-
             {errors.username?.map((message, idx) => (
               <div className={styles.Div}>
                 <Alert variant="warning" key={idx}>
@@ -63,41 +62,20 @@ const Register = () => {
                 </Alert>
               </div>
             ))}
-
             <div className={styles.Div}>
-              <Form.Group controlId="password1">
+              <Form.Group controlId="password">
                 <Form.Label className="d-none">Password</Form.Label>
                 <Form.Control
                   className={styles.Input}
                   type="password"
                   placeholder="Password"
-                  name="password1"
-                  value={password1}
+                  name="password"
+                  value={password}
                   onChange={handleChange}
                 />
               </Form.Group>
             </div>
-            {errors.password1?.map((message, idx) => (
-              <div className={styles.Div}>
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              </div>
-            ))}
-            <div className={styles.Div}>
-              <Form.Group controlId="password2">
-                <Form.Label className="d-none">Confirm Password</Form.Label>
-                <Form.Control
-                  className={styles.Input}
-                  type="password"
-                  placeholder="Confirm Password"
-                  name="password2"
-                  value={password2}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </div>
-            {errors.password2?.map((message, idx) => (
+            {errors.password?.map((message, idx) => (
               <div className={styles.Div}>
                 <Alert variant="warning" key={idx}>
                   {message}
@@ -106,7 +84,7 @@ const Register = () => {
             ))}
             <div className={styles.Div}>
               <Button className={styles.Btn} variant="success" type="submit">
-                Register
+                Log In
               </Button>
             </div>
             {errors.non_field_errors?.map((message, idx) => (
@@ -120,14 +98,14 @@ const Register = () => {
         </Container>
         <Container>
           <div className={styles.Div}>
-            <Link className={styles.Link} to="/login">
-              Already registered? Log in here
+            <Link className={styles.Link} to="/register">
+              Dont have an account? Register here
             </Link>
           </div>
         </Container>
       </Col>
     </Row>
   );
-};
+}
 
-export default Register;
+export default LogIn;
