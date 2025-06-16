@@ -24,6 +24,13 @@
   background-color: #0a8851;
 }
 
+.Btn:focus {
+  background-color: #05472A;
+  border: 1px solid #444444;
+  border-radius: 25px;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
 .Link {
   color: #05472A;
 }

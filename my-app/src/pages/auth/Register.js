@@ -105,7 +105,7 @@ const Register = () => {
               </div>
             ))}
             <div className={styles.Div}>
-              <Button className={styles.Btn} variant="primary" type="submit">
+              <Button className={styles.Btn} variant="success" type="submit">
                 Register
               </Button>
             </div>
