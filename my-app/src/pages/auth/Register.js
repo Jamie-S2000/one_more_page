@@ -63,6 +63,9 @@ const Register = () => {
               onChange={handleChange}
             />
           </Form.Group>
+          {errors.password1?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>{message}</Alert>
+          ))}
 
           <Form.Group controlId="password2">
             <Form.Label className="d-none">Confirm Password</Form.Label>
@@ -74,9 +77,16 @@ const Register = () => {
               onChange={handleChange}
             />
           </Form.Group>
+          {errors.password2?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>{message}</Alert>
+          ))}
+
           <Button variant="primary" type="submit">
             Register
           </Button>
+          {errors.non_friled_errors?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>{message}</Alert>
+          ))}
         </Form>
       </Container>
       <Container>
