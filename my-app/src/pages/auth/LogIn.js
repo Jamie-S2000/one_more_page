@@ -6,7 +6,11 @@ import axios from "axios";
 import styles from "../../styles/Forms.module.css";
 import appStyles from "../../App.module.css";
 
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+
 function LogIn() {
+  const setCurrentUser = useSetCurrentUser();
+
   const [logInData, setLogInData] = useState({
     username: "",
     password: "",
@@ -21,7 +25,8 @@ function LogIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", logInData);
+      const { data } = await axios.post("dj-rest-auth/login/", logInData);
+      setCurrentUser(data.user);
       navigate("/");
     } catch (err) {
       console.log("Log in error:", err.response?.data);
