@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import { Form, Button, Container, Col, Row, Alert } from "react-bootstrap";
 import styles from "../../styles/Forms.module.css";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -66,6 +66,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.book_title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Author</Form.Label>
         <Form.Control
@@ -75,6 +80,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.book_author?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Favorite Quote</Form.Label>
         <Form.Control
@@ -85,6 +95,11 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.fave_quote?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
@@ -95,17 +110,18 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <span className={styles.Div}>
         <Button className={styles.Btn} variant="success" type="submit">
           Post
         </Button>
       </span>
       <span className={styles.Div}>
-        <Button
-          className={styles.Btn}
-          variant="success"
-          onClick={handleDelete}
-        >
+        <Button className={styles.Btn} variant="success" onClick={handleDelete}>
           Delete
         </Button>
       </span>
