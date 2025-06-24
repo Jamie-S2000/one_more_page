@@ -7,6 +7,7 @@ import Register from "./pages/auth/Register";
 import LogIn from "./pages/auth/LogIn";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
+import PostsPage from "./pages/posts/PostsPage";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Routes>
-          <Route path="/" element={<h1>Home Page</h1>} />
+          <Route path="/" element={<PostsPage />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<h1>Contact</h1>} />
