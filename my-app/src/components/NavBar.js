@@ -81,7 +81,7 @@ const NavBar = () => {
     >
       <Container>
         <NavLink to="/">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <i class="fa-solid fa-book-open"></i> One More Page
           </Navbar.Brand>
         </NavLink>
