@@ -57,63 +57,79 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
-      <Form.Group>
-        <Form.Label>Title</Form.Label>
-        <Form.Control
-          type="text"
-          name="book_title"
-          value={book_title}
-          onChange={handleChange}
-        />
-      </Form.Group>
+      <div className={styles.Div}>
+        <Form.Group>
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            type="text"
+            name="book_title"
+            value={book_title}
+            onChange={handleChange}
+          />
+        </Form.Group>
+      </div>
       {errors?.book_title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
+        <div className={styles.Div}>
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        </div>
       ))}
-      <Form.Group>
-        <Form.Label>Author</Form.Label>
-        <Form.Control
-          type="text"
-          name="book_author"
-          value={book_author}
-          onChange={handleChange}
-        />
-      </Form.Group>
+      <div className={styles.Div}>
+        <Form.Group>
+          <Form.Label>Author</Form.Label>
+          <Form.Control
+            type="text"
+            name="book_author"
+            value={book_author}
+            onChange={handleChange}
+          />
+        </Form.Group>
+      </div>
       {errors?.book_author?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
+        <div className={styles.Div}>
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        </div>
       ))}
-      <Form.Group>
-        <Form.Label>Favorite Quote</Form.Label>
-        <Form.Control
-          type="textarea"
-          rows={3}
-          name="fave_quote"
-          value={fave_quote}
-          onChange={handleChange}
-        />
-      </Form.Group>
+      <div className={styles.Div}>
+        <Form.Group>
+          <Form.Label>Favorite Quote</Form.Label>
+          <Form.Control
+            type="textarea"
+            rows={3}
+            name="fave_quote"
+            value={fave_quote}
+            onChange={handleChange}
+          />
+        </Form.Group>
+      </div>
       {errors?.fave_quote?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
+        <div className={styles.Div}>
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        </div>
       ))}
-      <Form.Group>
-        <Form.Label>Content</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="content"
-          value={content}
-          onChange={handleChange}
-        />
-      </Form.Group>
+      <div className={styles.Div}>
+        <Form.Group>
+          <Form.Label>Content</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={6}
+            name="content"
+            value={content}
+            onChange={handleChange}
+          />
+        </Form.Group>
+      </div>
       {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
+        <div className={styles.Div}>
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        </div>
       ))}
       <span className={styles.Div}>
         <Button className={styles.Btn} variant="success" type="submit">
