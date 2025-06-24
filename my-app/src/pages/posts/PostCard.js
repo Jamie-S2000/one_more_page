@@ -1,24 +1,11 @@
 import React from "react";
-import appStyles from "../../App.module.css";
 import styles from "../../styles/Post.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { NavLink } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 const PostCard = (props) => {
-  const {
-    id,
-    owner,
-    profile_id,
-    book_title,
-    book_author,
-    fave_quote,
-    content,
-    postPage,
-  } = props;
+  const { id, book_title, book_author, fave_quote } = props;
 
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
   return (
     <div>
       <NavLink to={`/posts/${id}`}>

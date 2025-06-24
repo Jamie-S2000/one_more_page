@@ -3,7 +3,6 @@ import { Col, Row, Container } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useLocation } from "react-router-dom";
-import Post from "./Post";
 import PostCard from "./PostCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";

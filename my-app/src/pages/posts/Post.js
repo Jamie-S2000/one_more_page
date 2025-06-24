@@ -1,12 +1,10 @@
 import React from "react";
-import appStyles from "../../App.module.css";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { NavLink } from "react-router-dom";
 
 const Post = (props) => {
   const {
-    id,
     owner,
     profile_id,
     book_title,
