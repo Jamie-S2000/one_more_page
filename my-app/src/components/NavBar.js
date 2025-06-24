@@ -28,7 +28,7 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/newpost"
+      to="/posts/newpost"
     >
       New post
     </NavLink>
