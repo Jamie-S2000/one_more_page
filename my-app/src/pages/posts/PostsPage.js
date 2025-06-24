@@ -10,7 +10,7 @@ import { fetchMoreData } from "../../utils/utils";
 
 function PostsPage() {
   const [posts, setPosts] = useState({ results: [] });
-  const { pathname } = useLocation;
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -30,9 +30,11 @@ function PostsPage() {
       <Col className="my-auto" lg={6}>
         <Container>
           <InfiniteScroll
+          dataLength={posts.results.length}
             children={posts.results.map((post) => (
               <PostCard key={post.id} {...post} setPosts={setPosts} />
             ))}
+            hasMore={!!posts.next}
             next={() => fetchMoreData(posts, setPosts)}
           />
         </Container>
