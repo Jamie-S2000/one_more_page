@@ -7,7 +7,7 @@ import appStyles from "../../App.module.css";
 import formStyles from "../../styles/Forms.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
-import CommentCreateForm from "../comments/CommentcreateForm";
+import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
