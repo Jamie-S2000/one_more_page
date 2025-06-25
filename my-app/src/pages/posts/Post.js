@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { NavLink } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Post = (props) => {
   const {
@@ -23,7 +24,16 @@ const Post = (props) => {
       <p className={styles.Quote}>{fave_quote}</p>
       <p>{content}</p>
       <NavLink to={`/profiles/${profile_id}`}>Created by {owner}</NavLink>
-      <div>{is_owner && postPage && "..."}</div>
+      <div>
+        {is_owner && postPage && (
+          <div>
+            <NavLink to={`/posts/${props.id}/edit`}>
+              <Button>Edit</Button>
+            </NavLink>
+            <Button onClick={props.handleDelete}>Delete</Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
