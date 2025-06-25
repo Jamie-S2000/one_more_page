@@ -20,11 +20,23 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   return (
     <div>
-      <h1>{book_title}</h1>
-      <h3>by {book_author}</h3>
-      <p className={styles.Quote}>{fave_quote}</p>
-      <p>{content}</p>
-      <NavLink to={`/profiles/${profile_id}`}>Created by {owner}</NavLink>
+      <div className={formStyles.Div}>
+        <h1>{book_title}</h1>
+      </div>
+      <div className={formStyles.Div}>
+        <h3>by {book_author}</h3>
+      </div>
+      <div className={formStyles.Div}>
+        <p className={styles.Quote}>{fave_quote}</p>
+      </div>
+      <div className={formStyles.Div}>
+        <p>{content}</p>
+      </div>
+      <div className={formStyles.Div}>
+        <NavLink to={`/profiles/${profile_id}`} className={formStyles.Link}>
+          Created by {owner}
+        </NavLink>
+      </div>
       <div>
         {is_owner && postPage && (
           <div>
