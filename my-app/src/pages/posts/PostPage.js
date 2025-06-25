@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
-
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 import appStyles from "../../App.module.css";
 import formStyles from "../../styles/Forms.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -64,17 +65,23 @@ function PostPage() {
               )}
             </>
           )}
-          {comments.results.length ? (
-            comments.results.map((comment) => (
-              <Comment
-                key={comment.id}
-                owner={comment.owner}
-                content={comment.content}
-              />
-            ))
-          ) : (
-            <div className={formStyles.Div}>No comments yet.</div>
-          )}
+          <InfiniteScroll
+            dataLength={comments.results.length}
+            next={() => fetchMoreData(comments, setComments)}
+            hasMore={!!comments.next}
+          >
+            {comments.results.length ? (
+              comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  owner={comment.owner}
+                  content={comment.content}
+                />
+              ))
+            ) : (
+              <div className={formStyles.Div}>No comments yet.</div>
+            )}
+          </InfiniteScroll>
         </Container>
       </Col>
     </Row>
