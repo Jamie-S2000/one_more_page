@@ -5,10 +5,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
+  const currentUser = useCurrentUser();
+  const [comments, setComments] = useState({ results: [] });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +50,15 @@ function PostPage() {
             postPage
             handleDelete={handleDelete}
           />
+          {currentUser && (
+            <CommentCreateForm
+              post={id}
+              setPost={setPost}
+              setComments={setComments}
+              profile_id={currentUser.profile_id}
+              profileImage={currentUser.profile_image}
+            />
+          )}
         </Container>
       </Col>
     </Row>
