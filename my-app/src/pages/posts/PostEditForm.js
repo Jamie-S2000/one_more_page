@@ -29,7 +29,6 @@ function PostEditForm() {
           content: data.content,
         });
       } catch (err) {
-        console.log(err);
         navigate("/");
       }
     };

@@ -27,9 +27,7 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setComments(comments);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -39,9 +37,7 @@ function PostPage() {
     try {
       await axiosReq.delete(`/posts/${id}/`);
       navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

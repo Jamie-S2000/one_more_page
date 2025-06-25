@@ -16,9 +16,7 @@ function PostsPage() {
       try {
         const { data } = await axiosReq.get(`/posts/`);
         setPosts(data);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     fetchPosts();
@@ -29,7 +27,7 @@ function PostsPage() {
       <Col className="my-auto" lg={6}>
         <Container>
           <InfiniteScroll
-          dataLength={posts.results.length}
+            dataLength={posts.results.length}
             children={posts.results.map((post) => (
               <PostCard key={post.id} {...post} setPosts={setPosts} />
             ))}

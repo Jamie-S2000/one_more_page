@@ -19,9 +19,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const newPostIcon = (

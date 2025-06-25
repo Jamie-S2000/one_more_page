@@ -29,7 +29,6 @@ function LogIn() {
       setCurrentUser(data.user);
       navigate("/");
     } catch (err) {
-      console.log("Log in error:", err.response?.data);
       setErrors(err.response?.data);
     }
   };
