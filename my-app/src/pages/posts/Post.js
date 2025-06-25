@@ -8,7 +8,6 @@ import { Button } from "react-bootstrap";
 const Post = (props) => {
   const {
     owner,
-    profile_id,
     book_title,
     book_author,
     fave_quote,
