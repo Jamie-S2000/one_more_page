@@ -8,7 +8,7 @@ const PostCard = (props) => {
   const { id, book_title, book_author, fave_quote } = props;
 
   return (
-    <div>
+    <div className={formStyles.Div}>
       <NavLink to={`/posts/${id}`}>
         <Card>
           <Card.Body>
