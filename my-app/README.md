@@ -26,6 +26,15 @@ Backend repository: https://github.com/Jamie-S2000/book_reviews_api
 ### Target audience
 The target audience is active book readers and people who want to get into books.
 
+### User Stories
+- As a site user, I'd like to view all posts
+- As a site user, I'd like to view individual posts
+- As a site user, I'd like to comment on posts
+- As a site user, I'd like to create, read, edit and delete posts
+- As a site user, I'd like to have easy navigation of the site
+- As a site user, I'd like to register an account to the site
+- As a site user, I'd like to conact the site admin if i had any questions
+
 ### Themeing
 The site is made to recreate the colour and text styles that would commonly be seen in books.
 The secondary dark green was chosen to compliment this.
