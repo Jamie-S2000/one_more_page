@@ -61,6 +61,7 @@ function PostCreateForm() {
         <Form.Group>
           <Form.Label>Title</Form.Label>
           <Form.Control
+            className={styles.Input}
             type="text"
             name="book_title"
             value={book_title}
@@ -79,6 +80,7 @@ function PostCreateForm() {
         <Form.Group>
           <Form.Label>Author</Form.Label>
           <Form.Control
+            className={styles.Input}
             type="text"
             name="book_author"
             value={book_author}
@@ -97,6 +99,7 @@ function PostCreateForm() {
         <Form.Group>
           <Form.Label>Favorite Quote</Form.Label>
           <Form.Control
+            className={styles.Input}
             type="textarea"
             rows={3}
             name="fave_quote"
@@ -116,6 +119,7 @@ function PostCreateForm() {
         <Form.Group>
           <Form.Label>Content</Form.Label>
           <Form.Control
+            className={styles.Input}
             as="textarea"
             rows={6}
             name="content"
