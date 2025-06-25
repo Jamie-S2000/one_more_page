@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
+import formStyles from "../../styles/Forms.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -28,9 +29,17 @@ const Post = (props) => {
         {is_owner && postPage && (
           <div>
             <NavLink to={`/posts/${props.id}/edit`}>
-              <Button>Edit</Button>
+              <Button className={formStyles.Btn} variant="success">
+                Edit
+              </Button>
             </NavLink>
-            <Button onClick={props.handleDelete}>Delete</Button>
+            <Button
+              className={formStyles.Btn}
+              variant="danger"
+              onClick={props.handleDelete}
+            >
+              Delete
+            </Button>
           </div>
         )}
       </div>
