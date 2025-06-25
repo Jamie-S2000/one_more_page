@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
+import formStyles from '../../styles/Forms.module.css'
 import { NavLink } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
@@ -11,8 +12,8 @@ const PostCard = (props) => {
       <NavLink to={`/posts/${id}`}>
         <Card>
           <Card.Body>
-            <Card.Title>{book_title}</Card.Title>
-            <Card.Text>{book_author}</Card.Text>
+            <Card.Title className={formStyles.Link}>{book_title}</Card.Title>
+            <Card.Text className={formStyles.Link}>{book_author}</Card.Text>
             <Card.Text className={styles.Quote}>{fave_quote}</Card.Text>
           </Card.Body>
         </Card>
