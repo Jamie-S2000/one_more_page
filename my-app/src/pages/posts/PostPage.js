@@ -3,9 +3,11 @@ import { Container, Col, Row } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 
 import appStyles from "../../App.module.css";
+import formStyles from "../../styles/Forms.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
-import CommentCreateForm from "../comments/CommentCreateForm";
+import CommentCreateForm from "../comments/CommentcreateForm";
+import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostPage() {
@@ -18,11 +20,12 @@ function PostPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }] = await Promise.all([
+        const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });
-        console.log(post);
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -44,20 +47,33 @@ function PostPage() {
     <Row className={`${appStyles.Content}`}>
       <Col className="my-auto" lg={6}>
         <Container>
-          <Post
-            {...post.results[0]}
-            setPosts={setPost}
-            postPage
-            handleDelete={handleDelete}
-          />
-          {currentUser && (
-            <CommentCreateForm
-              post={id}
-              setPost={setPost}
-              setComments={setComments}
-              profile_id={currentUser.profile_id}
-              profileImage={currentUser.profile_image}
-            />
+          {post.results.length > 0 && (
+            <>
+              <Post
+                {...post.results[0]}
+                setPosts={setPost}
+                postPage
+                handleDelete={handleDelete}
+              />
+              {currentUser && (
+                <CommentCreateForm
+                  post={id}
+                  setPost={setPost}
+                  setComments={setComments}
+                />
+              )}
+            </>
+          )}
+          {comments.results.length ? (
+            comments.results.map((comment) => (
+              <Comment
+                key={comment.id}
+                owner={comment.owner}
+                content={comment.content}
+              />
+            ))
+          ) : (
+            <div className={formStyles.Div}>No comments yet.</div>
           )}
         </Container>
       </Col>
