@@ -43,13 +43,6 @@ const NavBar = () => {
       >
         Log Out
       </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to={`/profiles/${currentUser?.profile_id}`}
-      >
-        My Profile
-      </NavLink>
     </>
   );
   const loggedOutIcons = (

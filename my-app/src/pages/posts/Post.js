@@ -33,9 +33,7 @@ const Post = (props) => {
         <p>{content}</p>
       </div>
       <div className={formStyles.Div}>
-        <NavLink to={`/profiles/${profile_id}`} className={formStyles.Link}>
-          Created by {owner}
-        </NavLink>
+        <p>Created by {owner}</p>
       </div>
       <div>
         {is_owner && postPage && (
