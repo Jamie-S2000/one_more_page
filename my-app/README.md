@@ -138,7 +138,7 @@ The contact form allows users to contact the site's owner with any queries they 
 
 The project has been through extensive testing, which is documented here:
 
-[Testing](/TESTING.md)
+[Testing](./TESTING.md)
 
 #### Known bugs
 
