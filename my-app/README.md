@@ -136,9 +136,129 @@ The contact form allows users to contact the sites owner with any querys they ma
 
 ### Testing
 
-TBC
+The project has been though extencive testing which is documented here:
+
+[Testing](/TESTING.md)
 
 #### Known bugs
 
-TBC
+There are currently no known bugs
 
+## Deployment
+
+### Database
+
+The database host is the CodeInstitudeSQL database provided
+
+### Heroku
+
+- click "New" then "Create new app".
+- Create a unique app name , select the correct region and create app.
+- This will direct you to the deploy tab.
+- Navigate to settings.
+- Go to the Config Vars section, click add and add with:
+- config var named 'SECRET_KEY' and create a secret key for this
+- config var names 'DATABASE_URL', this will use the CodeInstitudeSQL database URL
+- Once this is done navigate to deploy.
+- Select GitHub as your deployment method.
+- Search for the repository and select it to connect.
+- select the deployment type you would like to use and deploy.
+
+### env.py
+
+In the project create an env.py file in the root directory.
+The elephantSQL database URL should be used as the DATABASE_URL
+A secret key should be pasted as the SECRET_KEY value, this does not need to be the same as the Heroku one.
+
+### New Database
+
+A new database host has been deloyed on the project. The steps taken to make this change were:
+
+- A new env.py file was created within the project with the new database URL
+- The categories for the database were migrated over using:
+  ```
+  python3 manage.py migrate
+  ```
+  in the terminal
+- Heroku's confic vars were updated to use the new database URL
+
+### settings.py
+
+In settings.py add:
+
+```
+from pathlib import Path
+import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+```
+
+### Final Steps
+
+- Link file to the templates directory in Heroku, place under BASE_DIR:
+
+```
+BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+```
+
+- Change the template direcory to TEMPLATES_DIR and place in templates array:
+
+```
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [TEMPLATES_DIR],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+
+- Add heroku to the ALLOWED_HOSTS:
+
+```
+ALLOWED_HOSTS=["project_name.herokuapp.com", "localhost"]
+```
+
+- create static and template files at the top leavel of the directory
+
+- create a Profile and add:
+
+```
+web: gunicorn project_name.wsgi
+```
+
+### Final Heroku deployment
+
+- **Make sure debug is set to 'False'**
+- click deploy
+- deploy branch
+
+### Front end
+
+- click "New" then "Create new app".
+- Create a unique app name , select the correct region and create app.
+- This will direct you to the deploy tab.
+- Navigate to settings.
+- Select GitHub as your deployment method.
+- Search for the repository and select it to connect.
+- select the deployment type you would like to use and deploy.
+
+## Languages and frameworks
+The languages and frameworks used are:
+- HTML
+- CSS
+- Python
+- Django
+- Django-rest-framework
+- Bootstrap
+- React
